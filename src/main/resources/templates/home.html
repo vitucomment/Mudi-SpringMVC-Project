@@ -13,7 +13,7 @@
 					<a th:classappend="${status} == null ? 'active'" class="nav-item nav-link" href="/home">Todos</a>
 					<a th:classappend="${status} == 'aguardando' ? 'active'" class="nav-item nav-link" href="/home/aguardando">Aguardando</a>
 					<a th:classappend="${status} == 'aprovado' ? 'active'" class="nav-item nav-link" href="/home/aprovado">Aprovado</a>
-					<a th:classappend="${status} == 'entrgue' ? 'active'" class="nav-item nav-link" href="/home/entregue">Entregue</a>
+					<a th:classappend="${status} == 'entregue' ? 'active'" class="nav-item nav-link" href="/home/entregue">Entregue</a>
 				</div>
 				<a href="/pedido/formulario"><button type="button" class="btn btn-outline-secondary my-2 my-sm-0 me-3">Novo</button></a>
 			</nav>
