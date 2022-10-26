@@ -23,15 +23,15 @@ public class WebSecurityConfig{
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
         http
             .authorizeHttpRequests()
-                .anyRequest().authenticated()
+            	.antMatchers("/home/**", "/").permitAll()
+            	.anyRequest().authenticated()
             .and()
                 .formLogin(form -> form
                     .loginPage("/login")
                     .defaultSuccessUrl("/usuario/pedido",true)
                     .permitAll())
-                .logout(logout -> logout.logoutUrl("/logout"))
-                .csrf().disable();
-
+                .logout(logout -> logout.logoutUrl("/logout")
+                		.logoutSuccessUrl("/home"));
         return http.build();
     }
 
