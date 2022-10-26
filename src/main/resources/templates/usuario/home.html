@@ -10,10 +10,10 @@
 			<div th:replace="~{base :: titulo('Meus Pedidos')}"></div>
 			<nav class="navbar navbar-expand justify-content-between mb-3 " style="background-color: #e3f2fd; ">
 				<div class="navbar-nav ms-3">
-					<a th:classappend="${status} == null ? 'active'" class="nav-item nav-link" href="/home">Todos</a>
-					<a th:classappend="${status} == 'aguardando' ? 'active'" class="nav-item nav-link"href="/home/aguardando">Aguardando</a>
-					<a th:classappend="${status} == 'aprovado' ? 'active'" class="nav-item nav-link" href="/home/aprovado">Aprovado</a>
-					<a th:classappend="${status} == 'entregue' ? 'active'" class="nav-item nav-link" href="/home/entregue">Entregue</a>
+					<a th:classappend="${status} == null ? 'active'" class="nav-item nav-link" th:href="@{/usuario/pedido}">Todos</a>
+					<a th:classappend="${status} == 'aguardando' ? 'active'" class="nav-item nav-link"th:href="@{/usuario/pedido/aguardando}">Aguardando</a>
+					<a th:classappend="${status} == 'aprovado' ? 'active'" class="nav-item nav-link" th:href="@{/usuario/pedido/aprovado}">Aprovado</a>
+					<a th:classappend="${status} == 'entregue' ? 'active'" class="nav-item nav-link" th:href="@{/usuario/pedido/entregue}">Entregue</a>
 				</div>
 				<a href="/pedido/formulario"><button type="button" class="btn btn-outline-secondary my-2 my-sm-0 me-3">Novo</button></a>
 			</nav>
