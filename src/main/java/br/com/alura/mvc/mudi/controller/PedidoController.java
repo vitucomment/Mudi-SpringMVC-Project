@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.alura.mvc.mudi.dto.RequisicaoNovoPedido;
-import br.com.alura.mvc.mudi.model.Pedido;
 import br.com.alura.mvc.mudi.model.User;
+import br.com.alura.mvc.mudi.model.Pedido;
 import br.com.alura.mvc.mudi.repository.PedidoRepository;
 import br.com.alura.mvc.mudi.repository.UserRepository;
 
@@ -36,10 +36,9 @@ public class PedidoController {
 		if(result.hasErrors()) {
 			return "pedido/formulario";
 		}
-		
-		String username = SecurityContextHolder.getContext().getAuthentication().getName();
-		
+		String username = SecurityContextHolder.getContext().getAuthentication().getName();		
 		User usuario = userRepository.findByUsername(username);
+		
 		Pedido pedido = requisicao.toPedido();
 		pedido.setUser(usuario);
 		pedidoRepository.save(pedido);

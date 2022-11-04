@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head th:insert="~{base :: head}">
+		<title>Cadastro de novo usuário</title>
+	</head>
+	<body>
+	<div th:insert="~{base :: logo}"></div>
+		<div class="container">
+			<div th:insert="~{base :: titulo('Cadastre-se')}"></div>
+			<div class="card mt-3">
+				<form th:action="@{/user/novo}" th:object="${requisicaoNovoUsuario}" class="card-body" action="/user/novo" method="POST">
+					<div class="form-group">
+						<label for="username">Nome:</label>
+						<input th:field="*{username}" th:errorclass="is-invalid" class="form-control" placeholder="username"/>
+						<div class="invalid-feedback" th:errors="*{username}">
+							Erros do nome do usuario
+						</div>
+					</div>
+					<div class="form-group mt-3">
+						<label for="password">Senha</label>
+						<input type="password" th:field="*{password}" th:errorclass="is-invalid" class="form-control" placeholder="password"/>
+						<div class="invalid-feedback" th:errors="*{password}">
+							Erros da senha do usuário
+						</div>
+					</div>
+					<button class="btn btn-primary mt-2" type="submit">Cadastrar</button>				
+				</form>
+			</div>			
+		</div>
+	</body>
+</html>
+			
